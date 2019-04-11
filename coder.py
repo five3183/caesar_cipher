@@ -3,7 +3,8 @@ alpha = string.ascii_lowercase
 
 def code_this_word(key, word):
     if key > 25:
-        key = key-25
+        key = key%25
+        print(key)
     offset = alpha[key::]
     offset = offset + alpha[:key:]
     code_word = ''
@@ -18,7 +19,7 @@ def code_this_word(key, word):
 
 def decode_this_word(key, word):
     if key > 25:
-        key = key-25
+        key = key%25
     offset = alpha[key::]
     offset = offset + alpha[:key:]
     decode_word = ''
@@ -31,10 +32,10 @@ def decode_this_word(key, word):
             decode_word = decode_word + alpha[position]
     return decode_word
 
-
+z = 26
 test1 = 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG'
 
-test2 = code_this_word(23, test1)
+test2 = code_this_word(z, test1)
 
-print('Coded word: ' + code_this_word(23, test1))
-print('Decoded word: ' + decode_this_word(23, test2))
+print('Coded word: ' + code_this_word(z, test1))
+print('Decoded word: ' + decode_this_word(z, test2))
